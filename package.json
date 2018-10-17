@@ -1,0 +1,35 @@
+{
+  "name": "cdmx-2018-06-bc-core-am-burger-queen",
+  "version": "1.0.0",
+  "description": "Vue project",
+  "main": "server.js",
+  "dependencies": {
+    "apollo-server": "^2.1.0",
+    "concurrently": "^4.0.1",
+    "dotenv": "^6.1.0",
+    "graphql": "^14.0.2",
+    "jsonwebtoken": "^8.3.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.3.4",
+    "nodemon": "^1.18.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Copelia/cdmx-2018-06-bc-core-am-burger-queen.git"
+  },
+  "keywords": [
+    "vue",
+    "graphql"
+  ],
+  "author": "Copelia A",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Copelia/cdmx-2018-06-bc-core-am-burger-queen/issues"
+  },
+  "homepage": "https://github.com/Copelia/cdmx-2018-06-bc-core-am-burger-queen#readme"
+}
