@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const OrderSchema = new.mongoose({
-    products: {
-        type: [mongoose.Scheme.Types.ObjectId],
+const OrderSchema = new mongoose.Schema({
+    product: {
+        type: [mongoose.Schema.Types.ObjectId],
         required: true,
         ref: 'Product'
     },
@@ -23,9 +23,6 @@ const OrderSchema = new.mongoose({
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'User'
-    },
-    side: {
-        type: [String]
     }
 });
 

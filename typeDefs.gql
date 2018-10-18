@@ -1,0 +1,29 @@
+type Product {
+    _id: ID
+    name: String!
+    price: Int!
+    shift: Boolean!
+    extra: [String]
+    side: [String]
+}
+
+type Drink {
+    _id: ID
+    name: String!
+    price: Int!
+}
+
+type Order {
+    _id: ID
+    product: [Product]!
+    drink: [Drink]!
+    total: Int!
+    client: String!
+    employee: User!
+}
+
+type User {
+    _id: ID
+    username: String! @unique
+    password: String! 
+}
