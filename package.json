@@ -1,35 +1,27 @@
 {
-  "name": "cdmx-2018-06-bc-core-am-burger-queen",
+  "name": "burger-queen-project",
   "version": "1.0.0",
   "description": "Vue project",
   "main": "server.js",
-  "dependencies": {
-    "apollo-server": "^2.1.0",
-    "concurrently": "^4.0.1",
-    "dotenv": "^6.1.0",
-    "graphql": "^14.0.2",
-    "jsonwebtoken": "^8.3.0",
-    "md5": "^2.2.1",
-    "mongoose": "^5.3.4",
-    "nodemon": "^1.18.4"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "test",
-    "start": "node server.js"
+    "server": "nodemon server.js",
+    "client": "cd client && npm run serve",
+    "dev": "concurrently --names \"server,client\" \"npm run server --silent\" \"npm run client --silent\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Copelia/cdmx-2018-06-bc-core-am-burger-queen.git"
-  },
-  "keywords": [
-    "vue",
-    "graphql"
-  ],
+  "keywords": [],
   "author": "Copelia A",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Copelia/cdmx-2018-06-bc-core-am-burger-queen/issues"
+  "dependencies": {
+    "apollo-server": "^2.0.0-rc.7",
+    "bcrypt": "^3.0.0",
+    "dotenv": "^6.0.0",
+    "graphql": "^0.13.2",
+    "jsonwebtoken": "^8.3.0",
+    "md5": "^2.2.1",
+    "mongoose": "^5.2.6"
   },
-  "homepage": "https://github.com/Copelia/cdmx-2018-06-bc-core-am-burger-queen#readme"
+  "devDependencies": {
+    "concurrently": "^3.6.0",
+    "nodemon": "^1.18.1"
+  }
 }
