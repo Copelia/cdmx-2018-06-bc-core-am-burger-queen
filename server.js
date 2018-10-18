@@ -1,6 +1,18 @@
 const { ApolloServer, gql } = require('apollo-server');
 const mongoose = require('mongoose');
 require('dotenv').config({path: 'variables.env'});
+const fs = require('fs');
+const path = require('path');
+const resolvers = require('./resolvers');
+
+const Drink = require('./models/Drink');
+const Order = require('./models/Order');
+const Product = require('./models/Product');
+const User = require('./models/User');
+
+const filePath = path.join(__dirname, 'typeDefs.gql');
+console.log(filePath);
+const typeDefs = fs.readFileSync(filePath, 'utf-8')
 
 mongoose.connect(
     process.env.MONGO_URI,
@@ -11,23 +23,15 @@ mongoose.connect(
 .catch((error) => console.log(error)
 );
 
-    // Como apollo lee gql, hay que convertir el array a este modelo
-    // En typeDefs solo defines, no ejecutas los modelos, para eso se usarán los resolvers
-    const typeDefs = gql`
-    type List {
-        bebida: String
-        snack: String
-    }
-
-    type Query {
-        getList: [List]
-    }
-    `;
-
-    
-// Creando servidor, y pasándole la data al servidor
-// ({ typeDefs: typeDefs }) uno es la llave para acceder, el otro es la variable, que tienen el mismo nombre,        por eso se omite uno
-const server = new ApolloServer({ typeDefs});
+const server = new ApolloServer({ 
+    typeDefs, resolvers,
+    context:{
+        Drink,
+        Product,
+        User,
+        Order
+    } 
+});
 //En los paréntesis del listen, puedo cambiar el número del puerto
 server.listen().then(({url}) => {
     (console.log('Está vivo', url))

@@ -1,0 +1,44 @@
+type Product {
+    _id: ID
+    name: String!
+    price: Int!
+    shift: Boolean!
+    extra: [String]
+    side: [String]
+}
+
+type Drink {
+    _id: ID
+    name: String!
+    price: Int!
+}
+
+type Order {
+    _id: ID
+    product: [Product]!
+    drink: [Drink]!
+    total: Int!
+    client: String!
+    employee: User!
+}
+
+type User {
+    _id: ID
+    username: String! @unique
+    password: String! 
+}
+
+type Query {
+    getUser: User
+    getDrinks: [Drink]!
+    getProducts: [Product]!
+    getOrders: [Order]!
+}
+
+type Mutation {
+    addDrink(name:String!, price:Int!): Drink!
+    addProduct(name:String!, price:Int!, extra: [String], shift:Boolean!, side:[String]): Product!
+    addOrder(product:ID!, drink: ID!, total:Int!, client:String!, employee:ID!): Order!
+    signupUser(username: String!, password: String!): User!
+}
+
