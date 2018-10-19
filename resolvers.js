@@ -6,7 +6,26 @@ Mutation: {
         if (user) { throw new Error('Este usuario ya existe, prueba con otro') } 
         const newUser = await new User({ username, password})
         .save()
-        return newUser
+        return newUser;
+        },
+    addDrink: async(_, { name, price }, { Drink }) => {
+        const drink = await Drink.findOne({ name }) 
+        if (drink) { throw new Error('Esta bebida ya existe') } 
+        const newDrink = await new Drink({ name, price })
+        .save()
+        return newDrink;
+        },
+    addProduct: async(_, { name, price, shift, extra, side }, { Product }) => {
+        const product = await Product.findOne({ name }) 
+        if (product) { throw new Error('Este alimento ya existe') } 
+        const newProduct = await new Product({ name, price, shift, extra, side })
+        .save()
+        return newProduct;
+        },       
+    addOrder: async(_, { food, drink, total, client, employee }) => {
+       const newOrder = await new Order ({ food, drink, total, client, employee })
+       .save()
+       return newOrder;
+       }    
     }
- }
-}
+};

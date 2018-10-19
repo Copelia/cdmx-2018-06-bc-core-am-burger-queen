@@ -33,7 +33,7 @@ const server = new ApolloServer({
     } 
 });
 //En los paréntesis del listen, puedo cambiar el número del puerto
-server.listen(8080).then(({url}) => {
+server.listen().then(({url}) => {
     (console.log('Está vivo', url))
 });
 

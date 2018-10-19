@@ -33,6 +33,9 @@ type Query {
 }
 
 type Mutation {
+    addDrink(name:String!, price:Int!): Drink!
+    addProduct(name:String!, price:Int!, extra: [String], shift:Boolean!, side:[String]): Product!
+    addOrder(product:ID!, drink: ID!, total:Int!, client:String!, employee:ID!): Order!
     signupUser(username: String!, password: String!): User!
 }
 
