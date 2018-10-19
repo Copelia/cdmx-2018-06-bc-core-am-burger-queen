@@ -1,15 +1,20 @@
 module.exports = { 
     Query: {
         getUser: () => null,
-        getDrinks: async(_,args, {Drink}) => {
+        getDrinks: async(_,args, { Drink }) => {
             const drinks = await Drink.find({})
             .sort({name: "desc"})
             return drinks;
         },
-        getProducts: async(_,args, {Product}) => {
+        getProducts: async(_,args, { Product }) => {
             const products = await Product.find({})
             .sort({name: "desc"})
             return products;
+        },
+        getOrders: async(_,args, { Order }) => {
+            const orders = await Order.find({})
+            .sort({client: "desc"})
+            return orders;
         }
     },
 
