@@ -1,4 +1,17 @@
 module.exports = { 
+    Query: {
+        getUser: () => null,
+        getDrinks: async(_,args, {Drink}) => {
+            const drinks = await Drink.find({})
+            .sort({name: "desc"})
+            return drinks;
+        },
+        getProducts: async(_,args, {Product}) => {
+            const products = await Product.find({})
+            .sort({name: "desc"})
+            return products;
+        }
+    },
 
 Mutation: {
     signupUser: async(_, { username, password }, { User }) => {
