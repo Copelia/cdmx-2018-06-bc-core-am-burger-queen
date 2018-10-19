@@ -27,3 +27,12 @@ type User {
     username: String! @unique
     password: String! 
 }
+
+type Query {
+    getUser: User
+}
+
+type Mutation {
+    signupUser(username: String!, password: String!): User!
+}
+

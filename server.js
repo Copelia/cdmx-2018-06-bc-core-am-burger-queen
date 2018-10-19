@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 require('dotenv').config({path: 'variables.env'});
 const fs = require('fs');
 const path = require('path');
+const resolvers = require('./resolvers');
 
 const Drink = require('./models/Drink');
 const Order = require('./models/Order');
@@ -23,7 +24,7 @@ mongoose.connect(
 );
 
 const server = new ApolloServer({ 
-    typeDefs,
+    typeDefs, resolvers,
     context:{
         Drink,
         Product,
@@ -32,7 +33,7 @@ const server = new ApolloServer({
     } 
 });
 //En los paréntesis del listen, puedo cambiar el número del puerto
-server.listen().then(({url}) => {
+server.listen(8080).then(({url}) => {
     (console.log('Está vivo', url))
 });
 
