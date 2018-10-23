@@ -41,7 +41,7 @@ Mutation: {
         return newProduct;
         },       
     addOrder: async(_, { food, drink, total, client, employee }) => {
-       const newOrder = await new Order ({ food, drink, total, client, employee })
+       const newOrder = await new Order ({ food, drink, total, client, employee, status })
        .save()
        return newOrder;
        }    

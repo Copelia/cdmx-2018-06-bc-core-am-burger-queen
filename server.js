@@ -32,8 +32,8 @@ const server = new ApolloServer({
         Order
     } 
 });
-//En los paréntesis del listen, puedo cambiar el número del puerto
-server.listen().then(({url}) => {
+//En los paréntesis del listen, puedo cambiar el número del puerto {port: process.env.PORT || 4000}
+server.listen(8080).then(({url}) => {
     (console.log('Está vivo', url))
 });
 
