@@ -53,10 +53,10 @@ type Query {
 
 type Mutation {
     addDrink(name:String!, price:Int!): Drink!
-    addProduct(name:String!, price:Int!, extra: [String], shift:Boolean!, side:[String]): Product!
+    addProduct(name:String!, price:Int!, shift:Boolean!): Product!
     addSide(name:String, price:Int): Side
     addExtra(name:String, price:Int): Extra
-    addOrder(product:ID!, drink: ID!, total:Int!, client:String!, employee:ID!, status: Boolean!): Order!
+    addOrder(product:ID!, drink: ID!, extra: ID, side: ID total:Int!, client:String!, employee:ID!, status: Boolean!): Order!
     signupUser(username: String!, password: String!): User!
 }
 

@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+
 const ProductSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -17,3 +18,7 @@ const ProductSchema = new mongoose.Schema({
 
 // Product es el nombre/etiqueta 
 module.exports = mongoose.model('Product', ProductSchema)
+
+ProductSchema.virtual('id').get(function () {
+    return this._id.toString();
+})
