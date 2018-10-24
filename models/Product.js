@@ -12,12 +12,6 @@ const ProductSchema = new mongoose.Schema({
     shift: {
         type: Boolean,
         required: true
-    },
-    extra: {
-        type: [String]
-    },
-    side: {
-        type: [String]
     }
 });
 

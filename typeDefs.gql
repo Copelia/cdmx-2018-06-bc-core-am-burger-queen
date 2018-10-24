@@ -3,11 +3,21 @@ type Product {
     name: String!
     price: Int!
     shift: Boolean!
-    extra: [String]
-    side: [String]
 }
 
 type Drink {
+    _id: ID
+    name: String!
+    price: Int!
+}
+
+type Side {
+    _id: ID
+    name: String!
+    price: Int!
+}
+
+type Extra {
     _id: ID
     name: String!
     price: Int!
@@ -21,6 +31,8 @@ type Order {
     client: String!
     employee: User!
     status: Boolean!
+    side: String
+    extra: String
 }
 
 type User {
@@ -33,12 +45,17 @@ type Query {
     getUser: User
     getDrinks: [Drink]!
     getProducts: [Product]!
+    getSides: Side
+    getExtras: Extra
     getOrders: [Order]!
+
 }
 
 type Mutation {
     addDrink(name:String!, price:Int!): Drink!
     addProduct(name:String!, price:Int!, extra: [String], shift:Boolean!, side:[String]): Product!
+    addSide(name:String, price:Int): Side
+    addExtra(name:String, price:Int): Extra
     addOrder(product:ID!, drink: ID!, total:Int!, client:String!, employee:ID!, status: Boolean!): Order!
     signupUser(username: String!, password: String!): User!
 }

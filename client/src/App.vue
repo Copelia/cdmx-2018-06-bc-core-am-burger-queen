@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-toolbar fixed color="secondary">
+    <v-toolbar fixed color="footer">
       <v-toolbar-title>
         <router-link to="/" tag="span" style="cursor:pointer">
           Burger Cuin
@@ -18,7 +18,10 @@
     </v-toolbar>
     <!--App content-->
     <main>
+      <v-container class="fluid mt-5">
+
       <router-view/>
+      </v-container>
     </main>
   </div>
 </template>

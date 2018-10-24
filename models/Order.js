@@ -11,6 +11,14 @@ const OrderSchema = new mongoose.Schema({
         required: true,
         ref: 'Drink'
     },
+    side: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Side'
+    },
+    extra: {
+        type: [mongoose.Schema.Types.ObjectId],
+        ref: 'Extra'
+    },
     total: {
         type: Number,
         required: true

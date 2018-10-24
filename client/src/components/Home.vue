@@ -12,27 +12,25 @@
           <v-item>
              <v-card
               slot-scope="{ active, toggle }"
-              :color="active ? 'primary' : ''"
+              :color="active ? 'prueba' : ''"
               class="d-flex align-center"
               dark
               height="150"
               width="180"
               @click.native="toggle"
             >
-<!--              <v-scroll-y-transition>
-                <div
-                  v-if="active"
-                  class="display-6 text-xs-center"
-                >
-                  Active
-                </div>
-              </v-scroll-y-transition> -->
+            <v-card-text>
+              <v-text-field box value="Comida"></v-text-field>
+              <v-space></v-space>
+                  </v-card-text>
             </v-card> 
+                  <v-btn color="warning">Ordenar</v-btn>
           </v-item>
         </v-flex>
       </v-layout>
     </v-container>
   </v-item-group>
+  <v-footer color="footer" class="mt-5"></v-footer>
   </v-app>
 </template>
 

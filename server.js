@@ -9,6 +9,8 @@ const Drink = require('./models/Drink');
 const Order = require('./models/Order');
 const Product = require('./models/Product');
 const User = require('./models/User');
+const Side = require('./models/Side');
+const Extra = require('./models/Extra');
 
 const filePath = path.join(__dirname, 'typeDefs.gql');
 console.log(filePath);
@@ -28,6 +30,8 @@ const server = new ApolloServer({
     context:{
         Drink,
         Product,
+        Side,
+        Extra,
         User,
         Order
     } 
