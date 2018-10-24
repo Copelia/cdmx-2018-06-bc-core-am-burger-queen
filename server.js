@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 require('dotenv').config({path: 'variables.env'});
 const fs = require('fs');
 const path = require('path');
-const resolvers = require('./resolvers');
 
 const Drink = require('./models/Drink');
 const Order = require('./models/Order');
@@ -12,8 +11,10 @@ const User = require('./models/User');
 const Side = require('./models/Side');
 const Extra = require('./models/Extra');
 
+const resolvers = require('./resolvers');
+
 const filePath = path.join(__dirname, 'typeDefs.gql');
-console.log(filePath);
+// console.log(filePath);
 const typeDefs = fs.readFileSync(filePath, 'utf-8')
 
 mongoose.connect(
@@ -26,7 +27,8 @@ mongoose.connect(
 );
 
 const server = new ApolloServer({ 
-    typeDefs, resolvers,
+    typeDefs, 
+    resolvers,
     context:{
         Drink,
         Product,
