@@ -21,7 +21,6 @@
             >
             <v-card-text>
               <v-text-field box value="Comida"></v-text-field>
-              <v-space></v-space>
                   </v-card-text>
             </v-card> 
                   <v-btn color="warning">Ordenar</v-btn>

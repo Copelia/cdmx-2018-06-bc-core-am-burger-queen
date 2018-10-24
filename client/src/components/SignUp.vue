@@ -14,6 +14,7 @@
 <script>
 export default {
     data: () => ({
+
     })
 }
 </script>
@@ -28,5 +29,3 @@ export default {
   }
 
 </style>
-
-
