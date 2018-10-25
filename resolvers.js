@@ -42,11 +42,11 @@ Mutation: {
         if (user) { throw new Error('Este usuario ya existe, prueba con otro') } 
         const newUser = await new User({ username, password})
         .save()
-        return newUser;
+        return { token: createToken(newUser, process.env.SECRET, '1hr')};
         },
     signinUser: async(_, { username, password }, { User }) => {
         const user = await User.findOne({username}) 
-        if (user) { throw new Error('Este usuario no existe') 
+        if (!user) { throw new Error('Este usuario no existe') 
         } 
         const isValidPassword = await bcrypt.compare(password, user.password);
         if (!isValidPassword){

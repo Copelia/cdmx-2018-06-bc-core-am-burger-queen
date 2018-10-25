@@ -1,5 +1,5 @@
 <template>
-      <v-form @submit.prevent="handleSignInUser">
+  <v-form>
     <v-text-field
       label="Name"
       required
@@ -10,7 +10,7 @@
       required
       v-model="password"
     ></v-text-field>
-    <v-btn>Ingresemos</v-btn>
+    <v-btn v-on:click="handleSignInUser" to="/orders">Ingresemos</v-btn>
   </v-form>
 </template>
 
@@ -25,7 +25,7 @@ export default {
     },
     methods:{
       handleSignInUser() {
-        this.$store.dispatch('signinUser', {
+        this.$store.dispatch("signinUser", {
           username: this.username,
           password: this.password
         });

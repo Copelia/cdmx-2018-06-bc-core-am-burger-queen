@@ -12,8 +12,9 @@ export default new Vuex.Store({
   mutations: {},
   actions: {
     signinUser: ({commit}, payload) => {
-      ApolloClient.mutate({
-        mutations: SIGNIN_USER,
+      ApolloClient
+      .mutate({
+        mutation: SIGNIN_USER,
         variables:payload
       })
       .then(({ data }) => {

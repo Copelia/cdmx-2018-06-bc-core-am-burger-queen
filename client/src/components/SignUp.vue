@@ -8,6 +8,7 @@
       label="Password"
       required
     ></v-text-field>
+    <v-btn>Registrémonos</v-btn>
   </v-form>
 </template>
 
