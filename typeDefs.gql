@@ -41,6 +41,10 @@ type User {
     password: String! 
 }
 
+type Token {
+    token: String!
+}
+
 type Query {
     getUser: User
     getDrinks: [Drink]!
@@ -48,7 +52,6 @@ type Query {
     getSides: Side
     getExtras: Extra
     getOrders: [Order]!
-
 }
 
 type Mutation {
@@ -57,6 +60,7 @@ type Mutation {
     addSide(name:String, price:Int): Side
     addExtra(name:String, price:Int): Extra
     addOrder(product:ID!, drink: ID!, extra: ID, side: ID total:Int!, client:String!, employee:ID!, status: Boolean!): Order!
-    signupUser(username: String!, password: String!): User!
+    signupUser(username: String!, password: String!): Token
+    signinUser(username: String!, password: String!): Token
 }
 

@@ -1,3 +1,11 @@
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const createToken = (user, secret, expiresIn) => {
+    const { username, password } = user;
+    return jwt.sign({ username, password }, secret, { expiresIn });
+};
+
 module.exports = { 
     Query: {
         getUser: () => null,
@@ -36,6 +44,16 @@ Mutation: {
         .save()
         return newUser;
         },
+    signinUser: async(_, { username, password }, { User }) => {
+        const user = await User.findOne({username}) 
+        if (user) { throw new Error('Este usuario no existe') 
+        } 
+        const isValidPassword = await bcrypt.compare(password, user.password);
+        if (!isValidPassword){
+            throw new Error("Contraseña inválida");
+          }
+          return {token: createToken(user, process.env.SECRET, '1hr')};
+        },    
     addDrink: async(_, { name, price }, { Drink }) => {
         const drink = await Drink.findOne({ name }) 
         if (drink) { throw new Error('Esta bebida ya existe') } 

@@ -1,21 +1,37 @@
 <template>
-      <v-form>
+      <v-form @submit.prevent="handleSignInUser">
     <v-text-field
       label="Name"
       required
+      v-model="username"
     ></v-text-field>
     <v-text-field
       label="Password"
       required
+      v-model="password"
     ></v-text-field>
+    <v-btn>Ingresemos</v-btn>
   </v-form>
 </template>
 
 <script>
 export default {
-    data: () => ({
-    })
-}
+    name: "SignIn",
+    data() {
+         return{
+           username: '',
+           password: ''
+         };
+    },
+    methods:{
+      handleSignInUser() {
+        this.$store.dispatch('signinUser', {
+          username: this.username,
+          password: this.password
+        });
+      }
+    }
+};
 </script>
 
 <style>
