@@ -1,16 +1,12 @@
 <template>
   <div class="mt-5 container-fluid">
   <h2>Orders baby</h2>
-  <ul v-for="drink in getDrinks" :key="drink._id">
-    <li>
+  <v-btn v-for="drink in getDrinks" :key="drink._id">
         Nombre: {{drink.name}} - Precio: {{drink.price}}
-    </li>
-  </ul>
-  <ul v-for="product in getProducts" :key="product._id">
-    <li>
+  </v-btn>
+  <v-btn v-for="product in getProducts" :key="product._id">
         Nombre: {{product.name}} - Precio: {{product.price}} - Turno: {{product.shift}}
-    </li>
-  </ul>
+  </v-btn>  
   </div>    
 </template>
 

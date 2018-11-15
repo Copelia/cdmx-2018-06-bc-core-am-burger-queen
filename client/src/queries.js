@@ -8,6 +8,17 @@ export const SIGNIN_USER = gql`
 mutation($username: String!, $password: String!){
     signinUser(username: $username, password: $password){
         token
+        }
     }
-}
 `;
+
+export const GET_FOOD_LIST = gql `
+  query{
+      getProducts{
+          _id
+          name
+          price
+          shift
+      }
+  }
+  `;

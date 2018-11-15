@@ -9,6 +9,8 @@ const createToken = (user, secret, expiresIn) => {
 module.exports = { 
     Query: {
         getUser: () => null,
+        // getCurrentUser: async(_, args, { User }) => {
+        // },
         getDrinks: async(_,args, { Drink }) => {
             const drinks = await Drink.find({})
             .sort({name: "desc"})
@@ -84,10 +86,10 @@ Mutation: {
         .save()
         return newExtra;
     },    
-    addOrder: async(_, { food, drink, total, client, employee, side, extra, status }) => {
+    addOrder: async(_, { food, drink, total, client, side, extra, status }) => {
        const newOrder = await new Order ({ food, drink, total, client, employee, side, extra, status })
        .save()
        return newOrder;
-       }    
+       }
     }
 };

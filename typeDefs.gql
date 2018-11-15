@@ -29,7 +29,7 @@ type Order {
     drink: [Drink]!
     total: Int!
     client: String!
-    employee: User!
+    # employee: User!
     status: Boolean!
     side: String
     extra: String
@@ -47,6 +47,7 @@ type Token {
 
 type Query {
     getUser: User
+    getCurrentUser: User 
     getDrinks: [Drink]!
     getProducts: [Product]!
     getSides: Side

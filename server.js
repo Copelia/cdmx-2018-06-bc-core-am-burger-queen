@@ -29,17 +29,15 @@ mongoose.connect(
 const server = new ApolloServer({ 
     typeDefs, 
     resolvers,
-    context:{
-        Drink,
-        Product,
-        Side,
-        Extra,
-        User,
-        Order
+    context: 
+    // ({req} =>
+         {
+        // console.log(req.headers['authorization']); 
+        Drink, Product, Side, Extra, User, Order
     } 
 });
 //En los paréntesis del listen, puedo cambiar el número del puerto {port: process.env.PORT || 4000}
-server.listen(8080).then(({url}) => {
+server.listen({port: process.env.PORT || 4000}).then(({url}) => {
     (console.log('Está vivo', url))
 });
 

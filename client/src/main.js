@@ -8,13 +8,37 @@ import './registerServiceWorker'
 
 import VueApollo from 'vue-apollo'
 import ApolloClient from 'apollo-boost'
+import { log } from 'util';
 
 Vue.use(VueApollo)
 
-// ({ uri: 'https://burger-queen-project-obewnbghxh.now.sh/graphql' })
-
 export const defaultClient = new ApolloClient({
-  uri: 'http://localhost:8080/graphql'
+  uri: 'https://burger-queen-project-zsxsbwqude.now.sh/graphql'
+  // uri: 'http://localhost:8080/graphql'
+  // ,
+  // fetchOptions:{
+  //   credentials: "include"
+  // },
+  // request: operation =>{
+  //   if(!localStorage.token){
+  //     localStorage.setItem('token', '');
+  //   }
+  //   operation.setContext({
+  //     headers:{
+  //       authorization: localStorage.setItem('token', '')
+  //     }
+  //   });
+  // },
+  // onError: ({graphQLErrors, networkError}) => {
+  //   if(networkError){
+  //     console.log('networkError', networkError);
+  //   }
+  //   if(graphQLErrors){
+  //     for(let err of graphQLErrors) {
+  //       console.log(err);
+  //     }
+  //   }
+  // }
 });
 
 const apolloProvider = new VueApollo({ defaultClient });
