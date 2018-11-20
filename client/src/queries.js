@@ -22,3 +22,35 @@ export const GET_FOOD_LIST = gql `
       }
   }
   `;
+
+export const ADD_ORDER = gql `
+  mutation(
+      $product: [Product]!
+      $drink: [Drink]!
+      $total: Int!
+      $client: String!
+      $status: Boolean!
+      $side: String
+      $extra: String
+  ) {
+      addOrder(
+          product: $product
+          drink: $drink
+          total: $total
+          client: $client
+          status: $status
+          side: $side
+          extra: $extra
+      )
+      {
+          _id
+          product
+          drink
+          total
+          client
+          status
+          side
+          extra
+      }
+  }
+`

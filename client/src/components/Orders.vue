@@ -1,10 +1,10 @@
 <template>
   <div class="mt-5 container-fluid">
   <h2>Orders baby</h2>
-  <v-btn v-for="drink in getDrinks" :key="drink._id">
+  <v-btn v-for="drink in getDrinks" :key="drink._id" v-on:click="adding(drink)">
         Nombre: {{drink.name}} - Precio: {{drink.price}}
   </v-btn>
-  <v-btn v-for="product in getProducts" :key="product._id">
+  <v-btn v-for="product in getProducts" :key="product._id" v-on:click="adding(product)">
         Nombre: {{product.name}} - Precio: {{product.price}} - Turno: {{product.shift}}
   </v-btn>  
   </div>    
@@ -37,7 +37,13 @@ apollo: {
             }
         }`
     }
-}
+},
+methods: {
+    addOrder: function () {
+        
+    }
+
+    }
 }
 </script>
 

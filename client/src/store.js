@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import { defaultClient as ApolloClient } from './main'
 // import { gql } from 'apollo-boost';
-import { SIGNIN_USER, GET_FOOD_LIST } from './queries';
+import { SIGNIN_USER, GET_FOOD_LIST, ADD_ORDER } from './queries';
 // import { log } from 'util';
 
 Vue.use(Vuex)
@@ -27,6 +27,26 @@ export default new Vuex.Store({
       })
       .catch(err => {
         console.log(err);
+      });
+    },
+    addOrder: ({ commit, payload }) => {
+      ApolloClient
+      .mutate({
+        mutation: ADD_ORDER,
+        variables: payload,
+        update: (cache, {
+          data: {
+            addOrder
+          }
+        })
+      })
+      .then(({
+        data
+      }) => {
+        console.log(data.addOrder);
+      })
+      .catch(err => {
+        console.error(err);
       });
     },
     signinUser: ({commit}, payload) => {
